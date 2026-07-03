@@ -1,4 +1,4 @@
-#include "level.h"
+#include "map.h"
 #include <stdlib.h>
 
 static int rectangle_collide(int r1x, int r1y, int r1w, int r1h, int r2x, int r2y, int r2w, int r2h){
