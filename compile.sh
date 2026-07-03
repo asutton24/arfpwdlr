@@ -1,1 +1,1 @@
-gcc -o main level.c terminal.c video.c main.c -lncurses
+gcc -o main map.c terminal.c video.c main.c -lncurses
