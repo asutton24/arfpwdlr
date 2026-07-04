@@ -14,13 +14,13 @@ int terminal_draw(char* screen){
 	clear();
 	int row, col, bx, by;
 	getmaxyx(stdscr, row, col);
-	if (row < 60 || col < 80){
+	if (row < 30 || col < 80){
 		move(0, 0);
-		printw("Terminal must be 80 by 60!");
+		printw("Terminal must be 80 by 30!");
 		refresh();
 		return 1;
 	}
-	by = row / 2 - 31;
+	by = row / 2 - 16;
 	bx = col / 2 - 41;
 	if (bx == -1 || by == -1) goto SKIP_BORDER;
 	attron(A_REVERSE);
@@ -28,13 +28,13 @@ int terminal_draw(char* screen){
 	for (int i = 0; i < 82; i++){
 		printw(" ");
 	}
-	for (int i = 1; i < 61; i++){
+	for (int i = 1; i < 31; i++){
 		move(by + i, bx);
 		printw(" ");
 		move(by + i, bx + 81);
 		printw(" ");
 	}
-	move(by + 61, bx);
+	move(by + 31, bx);
 	for (int i = 0; i < 82; i++){
 		printw(" ");
 	}
@@ -42,7 +42,7 @@ int terminal_draw(char* screen){
 SKIP_BORDER:
 	bx++;
 	by++;
-	for (int y = 0; y < 60; y++){
+	for (int y = 0; y < 30; y++){
 		move(by + y, bx);
 		for (int x = 0; x < 80; x++){
 			if (screen[80 * y + x]) printw("%c", screen[80 * y + x]);

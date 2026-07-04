@@ -61,11 +61,11 @@ int generate_random_rooms(map_t m, int amount, int min_x, int min_y, int vx, int
 		int invalid = 1;
 		while (invalid){
 			invalid = 0;
-			init_room(&m[i], rand() % 80, rand() % 60, min_x + (rand() % vx), min_y + (rand() % vy));
+			init_room(&m[i], rand() % 78 + 1, rand() % 27 + 1, min_x + (rand() % vx), min_y + (rand() % vy));
 			for (int j = 0; j < i; j++){
 				invalid += are_rooms_colliding(m[i], m[j]);
 			}
-			invalid += (m[i].start_x + m[i].len_x > 80) || (m[i].start_y + m[i].len_y > 60);
+			invalid += (m[i].start_x + m[i].len_x > 80) || (m[i].start_y + m[i].len_y > 28);
 		}
 	}
 	return 0;
