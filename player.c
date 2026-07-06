@@ -49,6 +49,8 @@ int player_update(player_t* p, entity_t* e, int e_size, map_t m, int m_size, cha
 
 int player_init(player_t* p){
 	p->entity->hp = 1;
+	p->entity->y_pos = 0;
+	p->entity->x_pos = 0;
 	p->entity->room = -1;
 	return 0;
 }

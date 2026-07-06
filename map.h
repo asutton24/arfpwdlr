@@ -1,15 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 
-typedef struct {
-	int start_x;
-	int start_y;
-	int len_x;
-	int len_y;
-	int active;
-} room_t;
-
-typedef room_t* map_t;
+#include "types.h"
 
 int init_room(room_t* r, int sx, int sy, int lx, int ly);
 int am_i_in_room(room_t r, int x, int y);

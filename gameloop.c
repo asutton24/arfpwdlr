@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "map.h"
 #include "player.h"
+#include "video.h"
 
 int init_level(map_t m, int* m_size, entity_t* e, int e_size, int level_num){
 	generate_random_rooms(m, 5, 7, 5, 4, 4);
@@ -29,10 +30,10 @@ int level_loop(map_t m, int m_size, entity_t* e, int e_size, player_t* p, char* 
 int start_game(void){
 	player_t p;
 	entity_t entities[64];
-	p.entity = &entities;
+	p.entity = &entities[0];
 	room_t rooms[16];
-	char* screen[2400];
-	char* map[2400];
+	char screen[2400];
+	char map[2400];
 	int r_size;
 	int e_size = 64;
 	init_level(rooms, &r_size, entities, e_size, 1);
