@@ -14,16 +14,21 @@ int init_level(map_t m, int* m_size, entity_t* e, int e_size, int level_num){
 
 int level_loop(map_t m, int m_size, entity_t* e, int e_size, player_t* p, char* screen, char* map){
 	int input = 'x';
+	int status;
 	for (int i = 0; i < 2400; i++) screen[i] = ' ';
 	for (int i = 0; i < 2400; i++) map[i] = ' ';
 	for (int i = 0; i < m_size; i++){
 		draw_room(map, m[i]);	
 	}
-	do {
+	do {	
+		for (int i = 0; i < m_size; i++){
+			draw_room(map, m[i]);	
+		}
 		for (int i = 0; i < 2400; i++) screen[i] = map[i];
 		for (int i = 0; i < e_size; i++) draw_entity(e[i], m, screen);
 		input = update_screen(screen);
-		update_entities(p, e, e_size, m, m_size, map, input);	
+		status = update_entities(p, e, e_size, m, m_size, map, input);	
+		if (status == -1) return 0;
 	} while (input != 'q');
 }
 

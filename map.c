@@ -41,8 +41,9 @@ int draw_room(char* screen, room_t r){
 			screen[80 * i + r.start_x] = '#';
 			screen[80 * i + r.start_x + r.len_x - 1] = '#';
 		}
-		for (int j = r.start_x + 1; j < r.start_x + r.len_x - 1 && r.active; j++){
-			screen[80 * i + j] = '.';
+		for (int j = r.start_x + 1; j < r.start_x + r.len_x - 1; j++){
+			if (r.active) screen[80 * i + j] = '.';
+			else screen[80 * i + j] = ' ';
 		}
 	}
 	for (int i = r.start_x; i < r.start_x + r.len_x; i++){

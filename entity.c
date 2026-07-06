@@ -35,6 +35,7 @@ int draw_entity(entity_t e, map_t m, char* screen){
 			to_draw = '?';
 	}
 	screen[80 * e.y_pos + e.x_pos] = to_draw;
+	return 0;
 }
 
 int update_entities(player_t* p, entity_t* e, int e_size, map_t m, int m_size, char* screen_map, int input){
@@ -45,6 +46,7 @@ int update_entities(player_t* p, entity_t* e, int e_size, map_t m, int m_size, c
 			case PLAYER:
 				status = player_update(p, e, e_size, m, m_size, screen_map, input);
 				if (status == 1) return 0;
+				if (status == -1) return -1;
 				break;
 			case GENERIC:
 				break;

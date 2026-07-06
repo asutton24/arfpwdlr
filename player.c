@@ -37,8 +37,11 @@ int player_update(player_t* p, entity_t* e, int e_size, map_t m, int m_size, cha
 			if (room == -1) return -1;
 			m[room].active = !m[room].active;
 		}	
-		if (screen_map[80 * p->entity->y_pos + p->entity->x_pos] == ' '){
-			screen_map[80 * p->entity->y_pos + p->entity->x_pos] = 'x';
+		//if (screen_map[80 * p->entity->y_pos + p->entity->x_pos] == ' '){
+		//	screen_map[80 * p->entity->y_pos + p->entity->x_pos] = 'x';
+		//}
+		if (screen_map[80 * oldy + oldx] == ' '){
+			screen_map[80 * oldy + oldx] = 'x';
 		}
 	}
 	for (int i = 0; i < e_size; i++){
